@@ -89,7 +89,7 @@ public class FXMLDocumentController implements Initializable {
                 gridPane.add(rect, j, i);
                 gridPane.setAlignment(Pos.CENTER);
                 gridPane.setValignment(rect, VPos.TOP);
-                rect.onMouseClickedProperty();
+     //           rect.onMouseClickedProperty(new EventHandler<MouseEvent>());
                 
                
 //                gridPane.getColumnConstraints().add(new ColumnConstraints(400));
