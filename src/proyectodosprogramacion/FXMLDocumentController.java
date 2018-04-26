@@ -31,6 +31,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 import javafx.scene.shape.Rectangle;
+import org.w3c.dom.Text;
 
 
 /**
@@ -73,7 +74,7 @@ public class FXMLDocumentController implements Initializable {
         int columnas = Integer.parseInt(tfNumeroColumnas.getText());
          //gridPane.resize(columnas, filas);
  
-      
+ 
      
         for (int i = 1; i <= filas; i++) {
             for (int j = 1; j <= columnas; j++) {
@@ -81,13 +82,16 @@ public class FXMLDocumentController implements Initializable {
            // ImageView imagenes = new ImageView();
 //               gridPane.addColumn(j, imagenes);
 //               gridPane.addRow(i, imagenes);
-                System.out.println("entra");
-                Rectangle rect = new Rectangle(75, 75);
+//                System.out.println("entra");
+                Rectangle rect = new Rectangle(100, 100);
                 rect.setFill(null);
                 rect.setStroke(Color.BLACK);
                 gridPane.add(rect, j, i);
                 gridPane.setAlignment(Pos.CENTER);
                 gridPane.setValignment(rect, VPos.TOP);
+                rect.onMouseClickedProperty();
+                
+               
 //                gridPane.getColumnConstraints().add(new ColumnConstraints(400));
 
             }
