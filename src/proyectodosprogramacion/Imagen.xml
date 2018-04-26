@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<collection name="Boulder Images">
+    <image url="icon-robots-10_98537.png"
+           name="South Boulder-aerial photo"
+           ullat="39.98890" ullon="-105.22782"
+           lrlat="39.98755" lrlon="-105.22548"/>
+
+    <image url="bouldertopo.jpeg"
+           ullat="40.06654" ullon="-105.34710"
+           lrlat="39.98040" lrlon="-105.19676"
+           name="Boulder topo"/>
+
+    <image url="bigtopo.jpeg"
+           ullat="40.22807" ullon="-106.66437"
+           lrlat="39.54718" lrlon="-105.45623"
+           name="Mountains topo"/>
+</collection>

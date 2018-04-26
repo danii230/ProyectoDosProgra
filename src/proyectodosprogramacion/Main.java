@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  *
  * @author daniela
  */
-public class ProyectoDosProgramacion extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -24,6 +24,7 @@ public class ProyectoDosProgramacion extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setTitle("ArmCabezas");
         stage.show();
     }
 
