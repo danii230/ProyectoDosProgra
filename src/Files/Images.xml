@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <image> 
+        <nombre>dribbble</nombre>
+        <URL>dribbble.png</URL>
+    </image> 
+    <image>
+        <nombre>facebook(1)</nombre>
+        <URL>facebook(1).png</URL>
+    </image>
+    <image>
+        <nombre>google-plus</nombre>
+        <URL>google-plus.png</URL>
+    </image>
+    <image>
+        <nombre>instagram(1)</nombre>
+        <URL>instagram(1.png</URL>
+    </image>
+    <image> 
+        <nombre>linkedin</nombre>
+        <URL>linkedin.png</URL>
+    </image>
+    <image> 
+        <nombre>pinterest</nombre>
+        <URL>pinterest.png</URL>
+    </image>
+    <image> 
+        <nombre>soundcloud</nombre>
+        <URL>soundcloud.png</URL>
+    </image>
+    <image> 
+        <nombre>swarm</nombre>
+        <URL>swarm.png</URL>
+    </image>
+    <image> 
+        <nombre>twitter</nombre>
+        <URL>twitter.png</URL>
+    </image>
+
+</root>
