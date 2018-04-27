@@ -109,6 +109,12 @@
         <url>Icon/018-lobster</url>
     </image>
     <image>
+        <name>019-lamb</name>
+        <height>30</height>
+        <width>30</width>
+        <url>Icon/019-lamb</url>
+    </image>
+    <image>
         <name>020-ice-cream</name>
         <height>30</height>
         <width>30</width>
@@ -131,12 +137,6 @@
         <height>30</height>
         <width>30</width>
         <url>Icon/023-fish</url>
-    </image>
-    <image>
-        <name>024-crab</name>
-        <height>30</height>
-        <width>30</width>
-        <url>Icon/024-crab</url>
     </image>
     <image>
         <name>024-crab</name>

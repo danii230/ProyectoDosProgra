@@ -5,10 +5,12 @@
  */
 package proyectodosprogramacion;
 
-
-
+import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +33,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 import javafx.scene.shape.Rectangle;
-
+import org.jdom.JDOMException;
 
 /**
  *
@@ -58,8 +60,27 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button bAccion;
 
+    ////ListaImagenes
+    @FXML
+    private AnchorPane listaImagenes;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        try {
+            FileArmacabeza fileArmacabeza = new FileArmacabeza();
+            //ListaImagenes
+            LinkedList<Image> imageList = fileArmacabeza.listImage("xml");
+            for (int i = 0; i < imageList.size(); i++) {
+                ImageView imageView = new ImageView(imageList.get(i).getUrl());
+                listaImagenes.getChildren().add(imageView);
+
+            }
+        } catch (JDOMException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -67,18 +88,15 @@ public class FXMLDocumentController implements Initializable {
     private void accionBoton(ActionEvent event) {
 
         gridPane.getChildren().clear();
-        
-        
+
         int filas = Integer.parseInt(tfNumeroFilas.getText());
         int columnas = Integer.parseInt(tfNumeroColumnas.getText());
-         //gridPane.resize(columnas, filas);
- 
-      
-     
+        //gridPane.resize(columnas, filas);
+
         for (int i = 1; i <= filas; i++) {
             for (int j = 1; j <= columnas; j++) {
 
-           // ImageView imagenes = new ImageView();
+                // ImageView imagenes = new ImageView();
 //               gridPane.addColumn(j, imagenes);
 //               gridPane.addRow(i, imagenes);
                 System.out.println("entra");
@@ -91,11 +109,9 @@ public class FXMLDocumentController implements Initializable {
 //                gridPane.getColumnConstraints().add(new ColumnConstraints(400));
 
             }
-            
-            
+
         }
 
     }
-    
 
 }
