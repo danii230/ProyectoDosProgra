@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -33,7 +34,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 import javafx.scene.shape.Rectangle;
-import org.w3c.dom.Text;
+import javafx.scene.text.Text;
+
+import proyectodosprogramacion.FXMLDocumentController.accion;
 
 /**
  *
@@ -59,12 +62,10 @@ public class FXMLDocumentController implements Initializable {
     private TextField tfNumeroFilas;
     @FXML
     private Button bAccion;
-    
-     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        gridPane.setOnMouseClicked(new accion());
+        // gridPane.setOnMouseClicked(new accion());
     }
 
     @FXML
@@ -76,22 +77,23 @@ public class FXMLDocumentController implements Initializable {
         int columnas = Integer.parseInt(tfNumeroColumnas.getText());
         //gridPane.resize(columnas, filas);
 
-       Rectangle rect = new Rectangle();
-
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-
+                Tile tile = new Tile();
+                  gridPane.setAlignment(Pos.TOP_LEFT);
+               gridPane.setValignment(tile, VPos.TOP);
+               gridPane.add(tile, j, i);
                 // ImageView imagenes = new ImageView();
 //               gridPane.addColumn(j, imagenes);
 //               gridPane.addRow(i, imagenes);
 //                System.out.println("entra");
-                rect = new Rectangle(130, 135);
-                rect.setFill(null);
-                rect.setStroke(Color.BLACK);
-                gridPane.setAlignment(Pos.CENTER);
-                gridPane.setValignment(rect, VPos.TOP);
-                gridPane.add(rect, j, i);
-                
+//            Rectangle rect = new Rectangle(130, 135);
+//                rect.setFill(null);
+//                rect.setStroke(Color.BLACK);
+//
+//                gridPane.setAlignment(Pos.TOP_LEFT);
+//                gridPane.setValignment(rect, VPos.TOP);
+//                gridPane.add(rect, j, i);
 
 //                gridPane.getColumnConstraints().add(new ColumnConstraints(400));
             }
@@ -100,19 +102,53 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
+    public class Tile extends StackPane {
+
+        private Text text = new Text();
+
+        public Tile() {
+            Rectangle rect = new Rectangle(130, 135);
+            rect.setFill(null);
+            rect.setStroke(Color.BLACK);
+
+//            gridPane.setAlignment(Pos.TOP_LEFT);
+//            gridPane.setValignment(rect, VPos.TOP);
+            getChildren().addAll(rect, text);
+            setOnMouseClicked(event -> {
+                  drawX();
+            });
+        }
+
+        private void drawX() {
+            text.setText("hola");
+        }
+    }
+
     public class accion implements EventHandler<MouseEvent> {
 
         @Override
         public void handle(MouseEvent event) {
-            int filas = Integer.parseInt(tfNumeroFilas.getText());
-            int columnas = Integer.parseInt(tfNumeroColumnas.getText());
-            
-            ImageView imagen = new ImageView("/Images/facebook (1).png");
-            
-            gridPane.add(imagen, 0, 0);
-            
-          
-            
+//            int filas = Integer.parseInt(tfNumeroFilas.getText());
+//            int columnas = Integer.parseInt(tfNumeroColumnas.getText());
+
+            ImageView imagen = new ImageView("/imagen/0b4b5b9f-8521-42d8-8a6b-7f64d371f42f.jpg");
+            //  gridPane.add(imagen, 0, 0);
+
+            Node source = (Node) event.getSource();
+            Integer columna = gridPane.getColumnIndex(source);
+            Integer fila = gridPane.getRowIndex(source);
+            gridPane.add(imagen, columna, fila);
+            System.out.println(fila);
+
+//        //            
+//// 
+////         
+//            gridPane.add(imagen, columna, fila);
+//            int x = (int) event.getSceneX();
+//            int y = (int) event.getSceneY();
+//            gridPane.add(imagen, x, y);
+            System.out.println("entra");
+
         }
 
     }
