@@ -51,30 +51,52 @@ public class FileManagerXml {
         return new FileManagerXml(rutaDocumento);
     }
 
-    public Image getImageByName(String name) {
-        Image image = new Image();
+    public Images getImageByNumber(int imageNumber) {
+        Images image = new Images();
         List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base
 
         for (int i = 0; i < children.size(); i++) {
             Element currentElement = children.get(i);
-            if ((currentElement.getChildText("name")).equals(name)) {
+            if (Integer.parseInt(currentElement.getChildText("imageNumber")) == imageNumber) {
                 image.setName(currentElement.getChildText("name"));
+                image.setImageNumber(Integer.parseInt(currentElement.getChildText("imageNumber")));
                 image.setHeight(Integer.parseInt(currentElement.getChildText("height")));
                 image.setWidth(Integer.parseInt(currentElement.getChildText("width")));
                 image.setUrl(currentElement.getChildText("url"));
+
             }
+
         }
         return image;
     }
+    
+//     public String getURLByNumber(int imageNumber) {
+//        Images image = new Images();
+//        String url = new String();
+//        List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base
+//
+//        for (int i = 0; i < children.size(); i++) {
+//            Element currentElement = children.get(i);
+//            if (Integer.parseInt(currentElement.getChildText("imageNumber")) == imageNumber) {
+//                
+//                
+//                url=(String)image.setUrl(currentElement.getChildText("url"));
+//
+//            }
+//
+//        }
+//        return image;
+//    }
 
-    public LinkedList<Image> getAllImage() {
+    public LinkedList<Images> getAllImage() {
         List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base
-        LinkedList<Image> imageList = new LinkedList<>();
+        LinkedList<Images> imageList = new LinkedList<>();
         for (int i = 0; i < children.size(); i++) {
-            Image image = new Image();
+            Images image = new Images();
             //obtengo la author actual del archivo
             Element currentElement = children.get(i);
             image.setName(currentElement.getChildText("name"));
+            image.setImageNumber(Integer.parseInt(currentElement.getChildText("imageNumber")));
             image.setHeight(Integer.parseInt(currentElement.getChildText("height")));
             image.setWidth(Integer.parseInt(currentElement.getChildText("width")));
             image.setUrl(currentElement.getChildText("url"));

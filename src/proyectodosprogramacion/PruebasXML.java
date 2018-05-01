@@ -15,7 +15,7 @@ import org.jdom.JDOMException;
  *
  * @author ValeriaLeivaQuirós
  */
-public class Pruebas {
+public class PruebasXML {
 
     /**
      * @param args the command line arguments
@@ -23,19 +23,19 @@ public class Pruebas {
     public static void main(String[] args) {
         try {
             FileArmacabeza fileArmacabeza = new FileArmacabeza();
-            LinkedList<Image> imageList = fileArmacabeza.listImage("xml");
+            LinkedList<Images> imageList = fileArmacabeza.listImage("xml");
             System.out.println("\n \n****Lector xml generar lista****\n\n");
             for (int i = 0; i < imageList.size(); i++) {
                 System.out.println(imageList.get(i).toString());
             }
 
             System.out.println("\n\n****Lector xml buscar uno****\n\n");
-            System.out.println(fileArmacabeza.objetoAReturnPorName("xml", "001-wine").toString());
+            System.out.println(fileArmacabeza.objetAReturnByNumber("xml", 2).toString());
 
         } catch (JDOMException ex) {
-            Logger.getLogger(Pruebas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PruebasXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Pruebas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PruebasXML.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

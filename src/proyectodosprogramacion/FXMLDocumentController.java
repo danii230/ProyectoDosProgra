@@ -5,8 +5,12 @@
  */
 package proyectodosprogramacion;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -32,11 +36,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+
 
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-
-import proyectodosprogramacion.FXMLDocumentController.accion;
+import org.jdom.JDOMException;
 
 /**
  *
@@ -45,11 +50,11 @@ import proyectodosprogramacion.FXMLDocumentController.accion;
 public class FXMLDocumentController implements Initializable {
 
     @FXML
-    private AnchorPane anchorPane;
+    private AnchorPane pane;
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private AnchorPane anchorPane2;
+    private GridPane gpn_list;
     @FXML
     private GridPane gridPane;
     @FXML
@@ -63,10 +68,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button bAccion;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // gridPane.setOnMouseClicked(new accion());
-    }
+    private static Images selectedImage;
+    private  String url1;
+
+  
 
     @FXML
     private void accionBoton(ActionEvent event) {
@@ -80,9 +85,9 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 Tile tile = new Tile();
-                  gridPane.setAlignment(Pos.TOP_LEFT);
-               gridPane.setValignment(tile, VPos.TOP);
-               gridPane.add(tile, j, i);
+                gridPane.setAlignment(Pos.TOP_LEFT);
+                gridPane.setValignment(tile, VPos.TOP);
+                gridPane.add(tile, j, i);
                 // ImageView imagenes = new ImageView();
 //               gridPane.addColumn(j, imagenes);
 //               gridPane.addRow(i, imagenes);
@@ -104,7 +109,10 @@ public class FXMLDocumentController implements Initializable {
 
     public class Tile extends StackPane {
 
-        private Text text = new Text();
+//        private Image img = new Image();
+        
+        Image im = new Image(url1, 80, 80, true, true);
+        ImageView imagen = new ImageView();
 
         public Tile() {
             Rectangle rect = new Rectangle(130, 135);
@@ -113,44 +121,70 @@ public class FXMLDocumentController implements Initializable {
 
 //            gridPane.setAlignment(Pos.TOP_LEFT);
 //            gridPane.setValignment(rect, VPos.TOP);
-            getChildren().addAll(rect, text);
+            getChildren().addAll(rect, imagen);
             setOnMouseClicked(event -> {
-                  drawX();
+                drawHi();
             });
         }
 
-        private void drawX() {
-            text.setText("hola");
+        private void drawHi() {
+            imagen.setImage(im);
         }
     }
 
-    public class accion implements EventHandler<MouseEvent> {
+    private void loadImages() {
+        try {
+            FileArmacabeza fileArmacabeza = new FileArmacabeza();
+            LinkedList<Images> listImages = fileArmacabeza.listImage("xml");
 
-        @Override
-        public void handle(MouseEvent event) {
-//            int filas = Integer.parseInt(tfNumeroFilas.getText());
-//            int columnas = Integer.parseInt(tfNumeroColumnas.getText());
+            for (int i = 0; i < 36; i++) {
+//                System.out.println(listImages.get(i).getUrl());
+                Images images = listImages.get(i);
+                Image image = new Image(images.getUrl(), 80, 80, true, true);
 
-            ImageView imagen = new ImageView("/imagen/0b4b5b9f-8521-42d8-8a6b-7f64d371f42f.jpg");
-            //  gridPane.add(imagen, 0, 0);
+                ImageView imageView = new ImageView(image);
+                int numberImage = i + 1;
+                imageView.setId(numberImage + "");
+                System.out.println(imageView.getId());
+                imageView.setOnMouseClicked((event) -> {
 
-            Node source = (Node) event.getSource();
-            Integer columna = gridPane.getColumnIndex(source);
-            Integer fila = gridPane.getRowIndex(source);
-            gridPane.add(imagen, columna, fila);
-            System.out.println(fila);
+                    Node source = (Node) event.getSource();
 
-//        //            
-//// 
-////         
-//            gridPane.add(imagen, columna, fila);
-//            int x = (int) event.getSceneX();
-//            int y = (int) event.getSceneY();
-//            gridPane.add(imagen, x, y);
-            System.out.println("entra");
+                    System.out.println(source.getId() + "hi");
 
+                    try {
+                        Images imagesTemp = (Images) fileArmacabeza.objetAReturnByNumber("xml", Integer.parseInt(source.getId()));
+                        url1 = images.getUrl();
+                        System.out.println(url1);
+                        System.out.println(imagesTemp);
+                        selectedImage = imagesTemp;
+                        System.out.println("Imagen seleccionada: --->>>" + selectedImage.toString());
+
+                    } catch (JDOMException ex) {
+                        Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                });
+
+                gpn_list.add(imageView, 0, i);
+
+            }
+
+            scrollPane.setContent(gpn_list);
+        } catch (JDOMException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    
+      @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        selectedImage = new Images();
+        url1= null;
+        loadImages();
     }
 
 }

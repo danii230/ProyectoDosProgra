@@ -9,22 +9,34 @@ package proyectodosprogramacion;
  *
  * @author ValeriaLeivaQuirós
  */
-public class Image {
+public class Images {
 
     private String name;
+    private int imageNumber;
     private int height;
     private int width;
     private String url;
 
-    public Image() {
+    public Images() {
     }
 
-    public Image(String name, int height, int width, String url) {
+    public Images(String name, int imageNumber, int height, int width, String url) {
         this.name = name;
+        this.imageNumber = imageNumber;
         this.height = height;
         this.width = width;
         this.url = url;
     }
+
+    public int getImageNumber() {
+        return imageNumber;
+    }
+
+    public void setImageNumber(int imageNumber) {
+        this.imageNumber = imageNumber;
+    }
+
+   
 
     public String getName() {
         return name;
@@ -60,8 +72,10 @@ public class Image {
 
     @Override
     public String toString() {
-        return "Images{" + "name=" + name + ", height=" + height + ", width=" + width + ", url=" + url + '}';
+        return "Images{" + "name=" + name + ", imageNumber=" + imageNumber + ", height=" + height + ", width=" + width + ", url=" + url + '}';
     }
+
+   
     
     
 }

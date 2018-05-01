@@ -16,18 +16,18 @@ import org.jdom.JDOMException;
  */
 public class FileArmacabeza {
 
-    public Object objetoAReturnPorName(String tipo, String name) throws JDOMException, IOException {
+    public Object objetAReturnByNumber(String tipo, int imageNumber) throws JDOMException, IOException {
         switch (tipo) {
             case "xml":
                 FileManagerXml fileManagerXml
                         = FileManagerXml.openDocument("src\\proyectodosprogramacion\\Imagenes.xml");
 
-                return fileManagerXml.getImageByName(name);
+                return fileManagerXml.getImageByNumber(imageNumber);
         }
         return null;
     }
 
-    public LinkedList<Image> listImage(String tipo) throws JDOMException, IOException {
+    public LinkedList<Images> listImage(String tipo) throws JDOMException, IOException {
 
         switch (tipo) {
             case "xml":
