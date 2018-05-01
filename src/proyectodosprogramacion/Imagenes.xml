@@ -128,7 +128,16 @@
     </image>
     <image>
         <name>019-lamb</name>
+<<<<<<< HEAD
         <imageNumber>19</imageNumber>
+=======
+        <height>30</height>
+        <width>30</width>
+        <url>Icon/019-lamb</url>
+    </image>
+    <image>
+        <name>020-ice-cream</name>
+>>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
         <height>30</height>
         <width>30</width>
         <url>Icon/019-lamb.png</url>
@@ -162,6 +171,7 @@
         <url>Icon/023-fish.png</url>
     </image>
     <image>
+<<<<<<< HEAD
         <name>024-crab</name>
         <imageNumber>24</imageNumber>
         <height>30</height>
@@ -171,6 +181,9 @@
     <image>
         <name>025-coffee</name>
         <imageNumber>25</imageNumber>
+=======
+        <name>025-coffe</name>
+>>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
         <height>30</height>
         <width>30</width>
         <url>Icon/025-coffee.png</url>
