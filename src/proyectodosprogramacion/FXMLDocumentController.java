@@ -69,8 +69,7 @@ public class FXMLDocumentController implements Initializable {
     private Button bAccion;
 
     private static Images selectedImage;
-    private  String url1;
-
+  
   
 
     @FXML
@@ -111,7 +110,7 @@ public class FXMLDocumentController implements Initializable {
 
 //        private Image img = new Image();
         
-        Image im = new Image(url1, 80, 80, true, true);
+       
         ImageView imagen = new ImageView();
 
         public Tile() {
@@ -128,6 +127,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
         private void drawHi() {
+            Image im = new Image(selectedImage.getUrl(), 80, 80, true, true);
             imagen.setImage(im);
         }
     }
@@ -154,10 +154,13 @@ public class FXMLDocumentController implements Initializable {
 
                     try {
                         Images imagesTemp = (Images) fileArmacabeza.objetAReturnByNumber("xml", Integer.parseInt(source.getId()));
-                        url1 = images.getUrl();
-                        System.out.println(url1);
                         System.out.println(imagesTemp);
-                        selectedImage = imagesTemp;
+                        selectedImage.setName(imagesTemp.getName());
+                        selectedImage.setImageNumber(imagesTemp.getImageNumber());
+                        selectedImage.setHeight(imagesTemp.getHeight());
+                        selectedImage.setWidth(imagesTemp.getWidth());
+                        selectedImage.setUrl(imagesTemp.getUrl());
+
                         System.out.println("Imagen seleccionada: --->>>" + selectedImage.toString());
 
                     } catch (JDOMException ex) {
@@ -182,8 +185,7 @@ public class FXMLDocumentController implements Initializable {
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-        selectedImage = new Images();
-        url1= null;
+        selectedImage = new Images("002-vegetables", 2, 30, 30, "Icon/002-vegetables.png");
         loadImages();
     }
 
