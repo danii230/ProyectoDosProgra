@@ -11,7 +11,6 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="444.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectodosprogramacion.FXMLDocumentController">
    <children>
-<<<<<<< HEAD
       <ScrollPane fx:id="scrollPane" layoutX="14.0" layoutY="3.0" prefHeight="425.0" prefWidth="146.0">
          <content>
             <GridPane fx:id="gpn_list" gridLinesVisible="true" prefHeight="330.0" prefWidth="98.0">
@@ -25,12 +24,6 @@
               </rowConstraints>
             </GridPane>
          </content>
-=======
-      <ScrollPane fx:id="scrollPane" layoutX="14.0" layoutY="23.0" prefHeight="350.0" prefWidth="200.0">
-        <content>
-          <AnchorPane fx:id="listaImagenes" minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="198.0" />
-        </content>
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
       </ScrollPane>
       <Label fx:id="labelIngreseColumnas" layoutX="249.0" layoutY="351.0" text="ingrese el numero de columnas que desea " />
       <TextField fx:id="tfNumeroFilas" layoutX="504.0" layoutY="308.0" prefHeight="25.0" prefWidth="95.0" />

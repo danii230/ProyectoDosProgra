@@ -5,14 +5,7 @@
  */
 package proyectodosprogramacion;
 
-<<<<<<< HEAD
 import java.io.IOException;
-=======
-<<<<<<< HEAD
-import java.io.IOException;
-=======
->>>>>>> 8b04c636b71e2a3933c20218642b31ca16fa62c8
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -47,17 +40,8 @@ import javafx.scene.image.Image;
 
 
 import javafx.scene.shape.Rectangle;
-<<<<<<< HEAD
-import org.jdom.JDOMException;
-=======
 import javafx.scene.text.Text;
-<<<<<<< HEAD
 import org.jdom.JDOMException;
-=======
-
-import proyectodosprogramacion.FXMLDocumentController.accion;
->>>>>>> 8b04c636b71e2a3933c20218642b31ca16fa62c8
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
 
 /**
  *
@@ -84,40 +68,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button bAccion;
 
-<<<<<<< HEAD
     private static Images selectedImage;
     private  String url1;
 
   
-=======
-    ////ListaImagenes
-    @FXML
-    private AnchorPane listaImagenes;
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-<<<<<<< HEAD
-
-        try {
-            FileArmacabeza fileArmacabeza = new FileArmacabeza();
-            //ListaImagenes
-            LinkedList<Image> imageList = fileArmacabeza.listImage("xml");
-            for (int i = 0; i < imageList.size(); i++) {
-                ImageView imageView = new ImageView(imageList.get(i).getUrl());
-                listaImagenes.getChildren().add(imageView);
-
-            }
-        } catch (JDOMException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-=======
-        // gridPane.setOnMouseClicked(new accion());
->>>>>>> 8b04c636b71e2a3933c20218642b31ca16fa62c8
-    }
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
 
     @FXML
     private void accionBoton(ActionEvent event) {
@@ -128,24 +82,12 @@ public class FXMLDocumentController implements Initializable {
         int columnas = Integer.parseInt(tfNumeroColumnas.getText());
         //gridPane.resize(columnas, filas);
 
-<<<<<<< HEAD
-        for (int i = 1; i <= filas; i++) {
-            for (int j = 1; j <= columnas; j++) {
-
-=======
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 Tile tile = new Tile();
-<<<<<<< HEAD
                 gridPane.setAlignment(Pos.TOP_LEFT);
                 gridPane.setValignment(tile, VPos.TOP);
                 gridPane.add(tile, j, i);
-=======
-                  gridPane.setAlignment(Pos.TOP_LEFT);
-               gridPane.setValignment(tile, VPos.TOP);
-               gridPane.add(tile, j, i);
->>>>>>> 8b04c636b71e2a3933c20218642b31ca16fa62c8
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
                 // ImageView imagenes = new ImageView();
 //               gridPane.addColumn(j, imagenes);
 //               gridPane.addRow(i, imagenes);
@@ -161,8 +103,6 @@ public class FXMLDocumentController implements Initializable {
 //                gridPane.getColumnConstraints().add(new ColumnConstraints(400));
             }
 
-<<<<<<< HEAD
-=======
         }
 
     }
@@ -212,7 +152,6 @@ public class FXMLDocumentController implements Initializable {
 
                     System.out.println(source.getId() + "hi");
 
-<<<<<<< HEAD
                     try {
                         Images imagesTemp = (Images) fileArmacabeza.objetAReturnByNumber("xml", Integer.parseInt(source.getId()));
                         url1 = images.getUrl();
@@ -226,10 +165,6 @@ public class FXMLDocumentController implements Initializable {
                     } catch (IOException ex) {
                         Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-=======
->>>>>>> 8b04c636b71e2a3933c20218642b31ca16fa62c8
-        }
->>>>>>> 0a3078f08d31ce145d5964e9efc0f9f4f116c9c2
 
                 });
 
