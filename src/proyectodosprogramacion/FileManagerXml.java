@@ -69,7 +69,6 @@ public class FileManagerXml {
         }
         return image;
     }
-    
 
     public LinkedList<Images> getAllImage() {
         List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base

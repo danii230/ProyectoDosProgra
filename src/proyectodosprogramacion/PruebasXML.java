@@ -21,7 +21,7 @@ public class PruebasXML {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
+       
             FileArmacabeza fileArmacabeza = new FileArmacabeza();
             LinkedList<Images> imageList = fileArmacabeza.listImage("xml");
             System.out.println("\n \n****Lector xml generar lista****\n\n");
@@ -32,11 +32,10 @@ public class PruebasXML {
             System.out.println("\n\n****Lector xml buscar uno****\n\n");
             System.out.println(fileArmacabeza.objetAReturnByNumber("xml", 2).toString());
 
-        } catch (JDOMException ex) {
-            Logger.getLogger(PruebasXML.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(PruebasXML.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
+        
+        
+       
 
     }
 }

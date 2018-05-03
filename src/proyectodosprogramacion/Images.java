@@ -16,6 +16,8 @@ public class Images {
     private int height;
     private int width;
     private String url;
+    private int columnPosition;
+    private int rowPosition;
 
     public Images() {
     }
@@ -28,6 +30,16 @@ public class Images {
         this.url = url;
     }
 
+    public Images(String name, int imageNumber, int height, int width, String url, int columnPosition, int rowPosition) {
+        this.name = name;
+        this.imageNumber = imageNumber;
+        this.height = height;
+        this.width = width;
+        this.url = url;
+        this.columnPosition = columnPosition;
+        this.rowPosition = rowPosition;
+    }
+
     public int getImageNumber() {
         return imageNumber;
     }
@@ -35,8 +47,6 @@ public class Images {
     public void setImageNumber(int imageNumber) {
         this.imageNumber = imageNumber;
     }
-
-   
 
     public String getName() {
         return name;
@@ -70,12 +80,28 @@ public class Images {
         this.url = url;
     }
 
+    public int getRowPosition() {
+        return rowPosition;
+    }
+
+    public void setRowPosition(int rowPosition) {
+        this.rowPosition = rowPosition;
+    }
+
+    public int getColumnPosition() {
+        return columnPosition;
+    }
+
+    public void setColumnPosition(int columnPosition) {
+        this.columnPosition = columnPosition;
+    }
+
     @Override
     public String toString() {
         return "Images{" + "name=" + name + ", imageNumber=" + imageNumber + ", height=" + height + ", width=" + width + ", url=" + url + '}';
     }
 
-   
-    
-    
+    public String toString1() {
+        return "Images{" + "name=" + name + ", imageNumber=" + imageNumber + ", height=" + height + ", width=" + width + ", url=" + url + ", colunm=" + columnPosition + ",row=" + rowPosition + '}';
+    }
 }
