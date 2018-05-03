@@ -320,7 +320,7 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < column; i++) {
             for (int j = 0; j < row; j++) {
                 for (int k = 0; k < this.matrixImages.size(); k++) {
-                    if (matrixImages.get(k).getColumnPosition() == j && matrixImages.get(k).getRowPosition() == i) {
+                    if (matrixImages.get(k).getColumnPosition() == i && matrixImages.get(k).getRowPosition() == j) {
                         selectedImage = matrixImages.get(k);
 
                         TileLoad tileLoad = new TileLoad();
