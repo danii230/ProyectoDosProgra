@@ -70,23 +70,6 @@ public class FileManagerXml {
         return image;
     }
     
-//     public String getURLByNumber(int imageNumber) {
-//        Images image = new Images();
-//        String url = new String();
-//        List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base
-//
-//        for (int i = 0; i < children.size(); i++) {
-//            Element currentElement = children.get(i);
-//            if (Integer.parseInt(currentElement.getChildText("imageNumber")) == imageNumber) {
-//                
-//                
-//                url=(String)image.setUrl(currentElement.getChildText("url"));
-//
-//            }
-//
-//        }
-//        return image;
-//    }
 
     public LinkedList<Images> getAllImage() {
         List<Element> children = root.getChildren("image");//ya que todas las editoriales se llaman asi , su base
